@@ -1,0 +1,527 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Nuova palette purple modern */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #2d2346;
+  line-height: 1.6;
+}
+
+/* Language Selector */
+.language-selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 10;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.language-option:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.language-option[data-active="true"] {
+  background: rgba(255, 255, 255, 0.9);
+  color: #2d3748;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.flag {
+  font-size: 1.2rem;
+}
+
+.lang-name {
+  font-weight: 600;
+}
+
+/* Container and card */
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(161, 140, 209, 0.10);
+  border: 1px solid #e9d8fd;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header section */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.coffee-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #a18cd1, #6a82fb);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 32px;
+  color: white;
+  box-shadow: 0 10px 20px rgba(161, 140, 209, 0.15);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #6a42c1;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #a18cd1, #6a82fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Content section */
+.content {
+  margin-bottom: 40px;
+}
+
+.content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #4b3869;
+  text-align: left;
+}
+
+.content .intro {
+  font-weight: 500;
+  color: #6a42c1;
+}
+
+.content .closing {
+  font-style: italic;
+  color: #8d7bbd;
+}
+
+/* Payment section */
+.payment-section {
+  margin-bottom: 30px;
+}
+
+.payment-section h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #6a42c1;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.payment-subtitle {
+  text-align: center;
+  color: #8d7bbd;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  border-radius: 16px;
+  border: 2px solid #e9d8fd;
+  transition: all 0.3s ease;
+  background: #f7f0ff;
+}
+
+.payment-method:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(161, 140, 209, 0.10);
+  border-color: #a18cd1;
+}
+
+.payment-method.preferred, .payment-method.thai-local {
+  border-color: #6a82fb;
+  background: linear-gradient(135deg, #f3e8ff, #e0c3fc);
+  position: relative;
+  box-shadow: 0 4px 20px rgba(106, 130, 251, 0.10);
+}
+
+.payment-method.preferred::before, .payment-method.thai-local::before {
+  content: "⭐";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 20px;
+  background: #6a82fb;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(106, 130, 251, 0.15);
+}
+
+.payment-method.international {
+  border-color: #bdb5e0;
+  background: linear-gradient(135deg, #f7f0ff, #e9e4f0);
+  opacity: 0.95;
+  box-shadow: 0 2px 10px rgba(161, 140, 209, 0.08);
+}
+
+.payment-method.international::before {
+  content: "🌍";
+  background: #bdb5e0;
+  box-shadow: 0 2px 8px rgba(161, 140, 209, 0.10);
+}
+
+.method-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-right: 20px;
+  flex-shrink: 0;
+  background: #fff;
+  border: 1.5px solid #e9d8fd;
+}
+
+.payment-method.primary {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #f7fafc, #edf2f7);
+}
+
+.payment-method.coming-soon {
+  opacity: 0.7;
+  background: #f7fafc;
+}
+
+.method-info {
+  flex: 1;
+}
+
+.method-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #6a42c1;
+  margin-bottom: 4px;
+}
+
+.method-info p {
+  font-size: 0.9rem;
+  color: #8d7bbd;
+  margin: 0;
+}
+
+/* Payment buttons */
+.payment-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.preferred-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.international-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.3);
+}
+
+.payment-button.preferred, .payment-button.thai-local {
+  background: linear-gradient(135deg, #a18cd1, #6a82fb);
+  color: white;
+  box-shadow: 0 4px 15px rgba(161, 140, 209, 0.10);
+}
+
+.payment-button.preferred:hover, .payment-button.thai-local:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(161, 140, 209, 0.15);
+  background: linear-gradient(135deg, #6a82fb, #a18cd1);
+}
+
+.payment-button.international {
+  background: linear-gradient(135deg, #bdb5e0, #a18cd1);
+  color: #2d2346;
+  box-shadow: 0 4px 15px rgba(161, 140, 209, 0.10);
+}
+
+.payment-button.international:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(161, 140, 209, 0.15);
+  background: linear-gradient(135deg, #a18cd1, #bdb5e0);
+}
+
+.payment-button.primary {
+  background: linear-gradient(135deg, #ff6b6b, #ffa500);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.payment-button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+  background: linear-gradient(135deg, #ff5252, #ff8c00);
+}
+
+.payment-button.disabled {
+  background: #e9e4f0;
+  color: #bdb5e0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.payment-button.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #e9d8fd;
+}
+
+.footer p {
+  color: #8d7bbd;
+  font-size: 0.9rem;
+}
+
+.footer i {
+  color: #a18cd1;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  .language-selector {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 20px;
+  }
+  
+  .language-option {
+    justify-content: center;
+    padding: 12px 20px;
+  }
+  
+  .card {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .coffee-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+  
+  .payment-method {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .method-icon {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .payment-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 20px 15px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .payment-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .payment-method {
+    padding: 20px 15px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #2d2346 0%, #6a42c1 100%);
+    color: #f7fafc;
+  }
+  .card {
+    background: rgba(45, 35, 70, 0.98);
+    border-color: #6a42c1;
+  }
+  h1, .content .intro {
+    color: #fbc2eb;
+  }
+  .content p {
+    color: #e9e4f0;
+  }
+  .payment-method {
+    background: rgba(106, 130, 251, 0.08);
+    border-color: #6a42c1;
+  }
+  .payment-method.preferred, .payment-method.thai-local {
+    background: linear-gradient(135deg, #6a42c1, #a18cd1);
+  }
+  .method-info h3 {
+    color: #fbc2eb;
+  }
+  .method-info p {
+    color: #bdb5e0;
+  }
+  .footer p {
+    color: #bdb5e0;
+  }
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  display: block;
+}
+
+.avatar-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2.5px solid #a18cd1;
+  box-shadow: 0 4px 16px rgba(161,140,209,0.10);
+  display: block;
+  background: #fff;
+}

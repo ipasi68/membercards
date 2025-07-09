@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>True Money QR</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      color: #2d2346;
+    }
+    .qr-container {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(161, 140, 209, 0.10);
+      border: 1.5px solid #a18cd1;
+      padding: 40px 32px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .qr-img {
+      width: 260px;
+      height: 260px;
+      object-fit: contain;
+      border-radius: 16px;
+      border: 2px solid #a18cd1;
+      margin-bottom: 24px;
+      background: #f7f0ff;
+    }
+    .btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+    .btn {
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(135deg, #a18cd1, #6a82fb);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(161, 140, 209, 0.10);
+      transition: background 0.2s;
+    }
+    .btn:active {
+      background: linear-gradient(135deg, #6a82fb, #a18cd1);
+    }
+    @media (max-width: 480px) {
+      .qr-img { width: 90vw; height: 90vw; max-width: 320px; max-height: 320px; }
+      .qr-container { padding: 16px 4vw 16px 4vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="qr-container">
+    <img src="tm.png" alt="True Money QR" class="qr-img" id="qrImg" />
+    <div class="btns">
+      <a href="tm.png" download class="btn">Scarica QR</a>
+      <button class="btn" onclick="shareQR()">Condividi QR</button>
+    </div>
+  </div>
+  <script>
+    function shareQR() {
+      if (navigator.share) {
+        fetch('tm.png')
+          .then(resp => resp.blob())
+          .then(blob => {
+            const file = new File([blob], 'TrueMoney-QR.png', { type: 'image/png' });
+            navigator.share({
+              files: [file],
+              title: 'True Money QR',
+              text: 'True Money QR code',
+            });
+          })
+          .catch(() => alert('Errore durante la condivisione.'));
+      } else {
+        alert('La condivisione diretta non è supportata su questo dispositivo.');
+      }
+    }
+  </script>
+</body>
+</html> 

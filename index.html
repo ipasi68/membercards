@@ -1,55 +1,120 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Linktree di [Il Tuo Nome]</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 20px;
-    }
-    h1 {
-      color: #333;
-      margin-bottom: 20px;
-    }
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 100%;
-      max-width: 400px;
-    }
-    .link-button {
-      display: block;
-      padding: 15px 20px;
-      text-align: center;
-      text-decoration: none;
-      background: #0077cc;
-      color: white;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
-    .link-button:hover {
-      background: #005fa3;
-    }
-  </style>
+  <title>Thank You – Buy Me a Coffee</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <h1>Il mio Linktree</h1>
-  <div class="links">
-    <a class="link-button" href="https://instagram.com/tuoaccount" target="_blank">Instagram</a>
-    <a class="link-button" href="https://facebook.com/tuopagina" target="_blank">Facebook</a>
-    <a class="link-button" href="https://tuosito.com" target="_blank">Il mio sito</a>
-    <a class="link-button" href="https://youtube.com/tuocanale" target="_blank">YouTube</a>
+  <div class="container">
+    <!-- Language Selector -->
+    <div class="language-selector">
+      <div class="language-option" data-lang="en" data-active="true">
+        <span class="flag">🇺🇸</span>
+        <span class="lang-name">English</span>
+      </div>
+      <div class="language-option" data-lang="it">
+        <span class="flag">🇮🇹</span>
+        <span class="lang-name">Italiano</span>
+      </div>
+      <div class="language-option" data-lang="th">
+        <span class="flag">🇹🇭</span>
+        <span class="lang-name">ไทย</span>
+      </div>
+    </div>
+    
+
+
+    <div class="card">
+      <div class="header">
+        <div class="coffee-icon">
+          <img src="me.png" alt="Avatar" class="avatar-img" />
+        </div>
+        <h1 data-translate="title">Thank You for Stopping By!</h1>
+      </div>
+      
+      <div class="content">
+        <p class="intro" data-translate="intro">
+          I truly appreciate you taking a moment to visit this page. If you've found value in the app I created and feel like saying thank you in a small but meaningful way, buying me a coffee is a wonderful gesture.
+        </p>
+        
+        <p class="description" data-translate="description">
+          This project has been a labor of love — countless hours of coding, testing, and refining to bring something useful and thoughtful into the world. Every coffee shared helps fuel the passion and energy needed to keep going, improving, and building more.
+        </p>
+        
+        <p class="closing" data-translate="closing">
+          Thank you from the bottom of my heart for your support — whether it's through a kind message, sharing the app, or this generous little token. It means more than you know.
+        </p>
+      </div>
+
+      <div class="payment-section">
+        <h2 data-translate="support-title">Support This Project</h2>
+        <p class="payment-subtitle" data-translate="support-subtitle">Choose your preferred way to show support:</p>
+        
+        <div class="payment-methods">
+          <!-- Thai Local Payment Methods -->
+          <div class="payment-method preferred thai-local">
+            <div class="method-icon">
+              <img src="pplogo.jpg" alt="PromptPay Logo" class="logo-img" />
+            </div>
+            <div class="method-info">
+              <h3 data-translate="promptpay-title">PromptPay QR</h3>
+              <p data-translate="promptpay-desc">Scan QR code with your Thai banking app</p>
+              <span class="preferred-badge" data-translate="thai-preferred">สำหรับคนไทย</span>
+            </div>
+            <a href="promptpay.html" target="_blank" class="payment-button preferred">
+              <i class="fas fa-qrcode"></i>
+              <span data-translate="scan-qr">Scan QR Code</span>
+            </a>
+          </div>
+
+          <div class="payment-method preferred thai-local">
+            <div class="method-icon">
+              <img src="tmlogo.png" alt="TrueMoney Logo" class="logo-img" />
+            </div>
+            <div class="method-info">
+              <h3 data-translate="truemoney-title">True Money</h3>
+              <p data-translate="truemoney-desc">Popular e-wallet in Thailand</p>
+              <span class="preferred-badge" data-translate="thai-preferred">สำหรับคนไทย</span>
+            </div>
+            <a href="truemoney.html" target="_blank" class="payment-button preferred">
+              <i class="fas fa-wallet"></i>
+              <span data-translate="scan-qr">Scan QR Code</span>
+            </a>
+          </div>
+
+          <!-- International Payment Method (Last Resort) -->
+          <div class="payment-method international">
+            <div class="method-icon">
+              <img src="stripelogo.png" alt="Stripe Logo" class="logo-img" />
+            </div>
+            <div class="method-info">
+              <h3 data-translate="international-title">International Payment</h3>
+              <p data-translate="international-desc">If you cannot use Thai payment methods above</p>
+              <span class="international-badge" data-translate="international">International</span>
+            </div>
+            <a href="https://buy.stripe.com/bJe8wP5sx5mw2Zbb7Z4ow00" class="payment-button international">
+              <i class="fas fa-coffee"></i>
+              <span data-translate="buy-coffee">Buy Coffee</span>
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="footer">
+        <p data-translate="footer-text">Made with <i class="fas fa-heart"></i> and lots of coffee</p>
+        <p style="font-size: 0.9em; color: gray;" data-translate="disclaimer">
+          Please note: this donation is entirely voluntary and not required to use any feature of the app.
+        </p>
+      </div>
+    </div>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

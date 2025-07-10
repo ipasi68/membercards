@@ -10,22 +10,21 @@ const translations = {
     "support-title": "Support This Project",
     "support-subtitle": "Choose your preferred way to show support:",
     "promptpay-title": "PromptPay QR",
-    "promptpay-desc": "Scan QR code with your Thai banking app",
+    "promptpay-desc": "Scan QR code with Alipay, WeChat, KakaoPay, or any Thai bank app",
     "scan-qr": "Scan QR Code",
     "truemoney-title": "True Money",
     "truemoney-desc": "Popular e-wallet in Thailand",
     "truemoney-donate": "Scan QR Code",
-    "international-title": "PayPal",
-    "international-desc": "If you cannot use Thai payment methods above",
-    "international": "International",
-    "thai-preferred": "For Thai and Thailand resident users",
+    "truemoney-preferred": "For those using TrueMoney Wallet or Thai PromptPay",
     "coming-soon-title": "More Options Coming Soon",
     "coming-soon-desc": "Additional payment methods will be available here",
     "coming-soon": "Coming Soon",
     "preferred": "Preferred",
     "footer-text": "Made with ❤️ and lots of coffee",
     disclaimer: "Please note: this donation is entirely voluntary and not required to use any feature of the app.",
-    "buy-coffee": "Buy Me a Coffee"
+    "buy-coffee": "Buy Me a Coffee",
+    "thai-preferred": "For users with Alipay, WeChat, KakaoPay, or Thai bank app",
+    "truemoney-preferred": "For those using TrueMoney Wallet or Thai PromptPay"
   },
   it: {
     title: "Grazie per essere passato!",
@@ -35,22 +34,21 @@ const translations = {
     "support-title": "Supporta Questo Progetto",
     "support-subtitle": "Scegli il modo preferito per mostrare il tuo supporto:",
     "promptpay-title": "PromptPay QR",
-    "promptpay-desc": "Scansiona il codice QR con la tua app bancaria thailandese",
+    "promptpay-desc": "Scansiona il QR con Alipay, WeChat, KakaoPay o una qualsiasi app bancaria thailandese",
     "scan-qr": "Scansiona QR",
     "truemoney-title": "True Money",
     "truemoney-desc": "Portafoglio elettronico popolare in Thailandia",
     "truemoney-donate": "Scansiona QR",
-    "international-title": "PayPal",
-    "international-desc": "Se non puoi usare i metodi di pagamento thailandesi sopra",
-    "international": "Internazionale",
-    "thai-preferred": "Per utenti thai e residenti in Thailandia",
+    "truemoney-preferred": "Per chi usa TrueMoney Wallet o promptpay THAI",
     "coming-soon-title": "Altre Opzioni in Arrivo",
     "coming-soon-desc": "Altri metodi di pagamento saranno disponibili qui",
     "coming-soon": "Prossimamente",
     "preferred": "Preferito",
     "footer-text": "Fatto con ❤️ e tanto caffè",
     disclaimer: "Nota: questa donazione è completamente volontaria e non richiesta per utilizzare qualsiasi funzionalità dell'app.",
-    "buy-coffee": "Offrimi un Caffè"
+    "buy-coffee": "Offrimi un Caffè",
+    "thai-preferred": "Per chi usa Alipay, WeChat, KakaoPay o una app bancaria thailandese",
+    "truemoney-preferred": "Per chi usa TrueMoney Wallet o promptpay THAI"
   },
   th: {
     title: "ขอบคุณที่แวะมา!",
@@ -60,22 +58,21 @@ const translations = {
     "support-title": "สนับสนุนโปรเจกต์นี้",
     "support-subtitle": "เลือกวิธีที่คุณต้องการแสดงการสนับสนุน:",
     "promptpay-title": "พร้อมเพย์ QR",
-    "promptpay-desc": "สแกน QR code ด้วยแอปธนาคารของคุณ",
+    "promptpay-desc": "สแกน QR ด้วย Alipay, WeChat, KakaoPay หรือแอปธนาคารไทย",
     "scan-qr": "สแกน QR",
     "truemoney-title": "ทรูมันนี่",
     "truemoney-desc": "กระเป๋าเงินอิเล็กทรอนิกส์ยอดนิยมในประเทศไทย",
     "truemoney-donate": "สแกน QR",
-    "international-title": "PayPal",
-    "international-desc": "หากคุณไม่สามารถใช้วิธีชำระเงินของไทยข้างต้นได้",
-    "international": "ระหว่างประเทศ",
-    "thai-preferred": "สำหรับคนไทย",
+    "truemoney-preferred": "สำหรับผู้ใช้ TrueMoney Wallet หรือพร้อมเพย์ไทย",
     "coming-soon-title": "ตัวเลือกเพิ่มเติมเร็วๆ นี้",
     "coming-soon-desc": "วิธีการชำระเงินเพิ่มเติมจะพร้อมใช้งานที่นี่",
     "coming-soon": "เร็วๆ นี้",
     "preferred": "แนะนำ",
     "footer-text": "สร้างด้วย ❤️ และกาแฟมากมาย",
     disclaimer: "โปรดทราบ: การบริจาคนี้เป็นไปโดยสมัครใจทั้งหมดและไม่จำเป็นต้องใช้คุณสมบัติใดๆ ของแอป",
-    "buy-coffee": "ซื้อกาแฟให้ฉัน"
+    "buy-coffee": "ซื้อกาแฟให้ฉัน",
+    "thai-preferred": "สำหรับผู้ใช้ Alipay, WeChat, KakaoPay หรือแอปธนาคารไทย",
+    "truemoney-preferred": "สำหรับผู้ใช้ TrueMoney Wallet หรือพร้อมเพย์ไทย"
   }
 };
 
@@ -88,28 +85,21 @@ function switchLanguage(lang) {
     console.error(`Language ${lang} not found in translations`);
     return;
   }
-  
-  // Prevent switching to the same language
-  if (currentLanguage === lang) {
-    return;
-  }
-  
+
   currentLanguage = lang;
-  
+
   // Update active language indicator
   document.querySelectorAll('.language-option').forEach(option => {
     const isActive = option.getAttribute('data-lang') === lang;
     option.setAttribute('data-active', isActive);
   });
-  
+
   // Update all translatable elements
   const translatableElements = document.querySelectorAll('[data-translate]');
-  
   translatableElements.forEach(element => {
     const key = element.getAttribute('data-translate');
     if (translations[lang] && translations[lang][key]) {
       const translation = translations[lang][key];
-      
       // Handle elements with icons
       if (element.innerHTML.includes('<i class=')) {
         const iconMatch = element.innerHTML.match(/<i[^>]*>.*?<\/i>/g);
@@ -123,10 +113,20 @@ function switchLanguage(lang) {
       }
     }
   });
-  
-  // Save language preference
-  localStorage.setItem('preferred-language', lang);
-  
+
+  // Forza aggiornamento badge PromptPay
+  const badgePromptPay = document.querySelector('.preferred-badge[data-translate="thai-preferred"]');
+  if (badgePromptPay) {
+    badgePromptPay.textContent = translations[lang]['thai-preferred'];
+    console.log('[DEBUG] Badge PromptPay aggiornato:', badgePromptPay.textContent);
+  }
+  // Forza aggiornamento badge TrueMoney
+  const badgeTrueMoney = document.querySelector('.preferred-badge[data-translate="truemoney-preferred"]');
+  if (badgeTrueMoney) {
+    badgeTrueMoney.textContent = translations[lang]['truemoney-preferred'];
+    console.log('[DEBUG] Badge TrueMoney aggiornato:', badgeTrueMoney.textContent);
+  }
+
   // Update page title
   const titles = {
     en: "Thank You – Buy Me a Coffee",
@@ -138,6 +138,25 @@ function switchLanguage(lang) {
 
 // Add smooth scrolling and interactive features
 document.addEventListener('DOMContentLoaded', function() {
+  // Leggi la preferenza salvata
+  const savedLang = localStorage.getItem('preferred-language');
+  const defaultLang = savedLang || 'en';
+  currentLanguage = defaultLang;
+  switchLanguage(defaultLang);
+
+  // Listener per cambio lingua
+  document.querySelectorAll('.language-option').forEach(option => {
+    option.addEventListener('click', function() {
+      const lang = this.getAttribute('data-lang');
+      if (lang !== currentLanguage) {
+        localStorage.setItem('preferred-language', lang);
+        switchLanguage(lang);
+      }
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => { this.style.transform = ''; }, 150);
+    });
+  });
+
   // Add click animation to payment buttons
   const paymentButtons = document.querySelectorAll('.payment-button:not(.disabled)');
   
@@ -241,35 +260,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   `;
   document.head.appendChild(style);
-
-  // Language selector functionality
-  const languageOptions = document.querySelectorAll('.language-option');
-  
-  if (languageOptions.length > 0) {
-    // Load saved language preference or detect browser language
-    const savedLang = localStorage.getItem('preferred-language');
-    const browserLang = navigator.language.split('-')[0];
-    const defaultLang = savedLang || (browserLang === 'it' ? 'it' : (browserLang === 'th' ? 'th' : 'en'));
-    
-    // Initialize with default language
-    currentLanguage = defaultLang;
-    switchLanguage(defaultLang);
-    
-    // Add click event listeners
-    languageOptions.forEach(option => {
-      option.addEventListener('click', function() {
-        const lang = this.getAttribute('data-lang');
-        localStorage.setItem('preferred-language', lang);
-        switchLanguage(lang);
-        
-        // Add click animation
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          this.style.transform = '';
-        }, 150);
-      });
-    });
-  }
 });
 
 // Add service worker registration for PWA capabilities (optional)

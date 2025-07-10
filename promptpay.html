@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PromptPay QR</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     body {
       background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
@@ -66,8 +67,8 @@
   <div class="qr-container">
     <img src="pp.png" alt="PromptPay QR" class="qr-img" id="qrImg" />
     <div class="btns">
-      <a href="pp.png" download class="btn">Scarica QR</a>
-      <button class="btn" onclick="shareQR()">Condividi QR</button>
+      <a href="pp.png" download class="btn" title="Download QR"><i class="fa-solid fa-download"></i></a>
+      <button class="btn" onclick="shareQR()" title="Share QR"><i class="fa-solid fa-share-from-square"></i></button>
     </div>
   </div>
   <script>

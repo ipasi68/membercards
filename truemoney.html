@@ -67,11 +67,28 @@
   <div class="qr-container">
     <img src="tm.png" alt="True Money QR" class="qr-img" id="qrImg" />
     <div class="btns">
-      <a href="tm.png" download class="btn" title="Download QR"><i class="fa-solid fa-download"></i></a>
+      <button class="btn" onclick="downloadQR()" title="Download QR"><i class="fa-solid fa-download"></i></button>
       <button class="btn" onclick="shareQR()" title="Share QR"><i class="fa-solid fa-share-from-square"></i></button>
     </div>
   </div>
   <script>
+    function downloadQR() {
+      const img = document.getElementById('qrImg');
+      fetch(img.src)
+        .then(resp => resp.blob())
+        .then(blob => {
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.style.display = 'none';
+          a.href = url;
+          a.download = 'TrueMoney-QR.png';
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+          a.remove();
+        })
+        .catch(() => alert('Download failed. Please try again or open this page in a browser.'));
+    }
     function shareQR() {
       if (navigator.share) {
         fetch('tm.png')
@@ -84,9 +101,9 @@
               text: 'True Money QR code',
             });
           })
-          .catch(() => alert('Errore durante la condivisione.'));
+          .catch(() => alert('Sharing failed. Please try again.'));
       } else {
-        alert('La condivisione diretta non è supportata su questo dispositivo.');
+        alert('Direct sharing is not supported on this device.');
       }
     }
   </script>

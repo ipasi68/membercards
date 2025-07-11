@@ -65,7 +65,7 @@
 </head>
 <body>
   <div class="qr-container">
-    <img src="pp.png" alt="PromptPay QR" class="qr-img" id="qrImg" />
+    <img src="pp.webp" alt="PromptPay QR" class="qr-img" id="qrImg" />
     <div class="btns">
       <button class="btn" onclick="downloadQR()" title="Download QR"><i class="fa-solid fa-download"></i></button>
       <button class="btn" onclick="shareQR()" title="Share QR"><i class="fa-solid fa-share-from-square"></i></button>
@@ -81,7 +81,7 @@
           const a = document.createElement('a');
           a.style.display = 'none';
           a.href = url;
-          a.download = 'PromptPay-QR.png';
+          a.download = 'pp.webp';
           document.body.appendChild(a);
           a.click();
           window.URL.revokeObjectURL(url);
@@ -91,10 +91,10 @@
     }
     function shareQR() {
       if (navigator.share) {
-        fetch('pp.png')
+        fetch('pp.webp')
           .then(resp => resp.blob())
           .then(blob => {
-            const file = new File([blob], 'PromptPay-QR.png', { type: 'image/png' });
+            const file = new File([blob], 'PromptPay-QR.webp', { type: 'image/webp' });
             navigator.share({
               files: [file],
               title: 'PromptPay QR',
